@@ -1,0 +1,22 @@
+<!--<ion-view view-title="Settings" ng-controller="SettingsCtrl as vm">-->
+<ion-view view-title="Settings">
+    <!--<ion-content>
+        <ion-toggle ng-model="vm.useNativeDatePicker.checked"  ng-change="vm.useNativeDatePickerChange()" ng-checked={{useNativeDatePicker.checked}}>Use Native Datepicker</ion-toggle>
+    </ion-content>-->
+
+    <ion-content>
+        <div class="list">
+            <ion-toggle ng-model="vm.settingsList[0].checked" ng-checked="vm.settingsList[0].checked">
+                {{vm.settingsList[0].text}}
+            </ion-toggle>
+            <div class="item item-input-inset">                              
+                <div class = "col">
+                    Transactions Per Page:
+                </div>
+                <div class = "col col-20">
+                    <input type="text" ng-model="vm.settingsList[1].value" value={{vm.settingsList[1].value}} style="width: 70px; text-align: center; font-size: large; background-color: lightblue; border-radius: 5px; margin-right: 20px;">
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view view-title="Bar Code">
+    <ion-content>
+        <div style="margin-top: 10%;">
+            <div class="card">
+                <div class="item">
+                    <button class="button button-block button-positive" ng-click="scanBarCode()">
+                        <i class="icon ion-camera"></i>
+                        Scan Now
+                    </button>
+                </div>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div class="item item-divider">Scan Results</div>
+                <br />
+                {{imagetext}}
+                <div>{{imageformat}}</div>
+                <br />
+                {{upclookup}}<br /><br />          
+                <button class="button button-block button-positive" ng-click="lookUpUPC()">
+                    <i class="icon ion-ios-book"></i>
+                    Look Up
+                </button>
+            </div>
+        </div>       
+    </ion-content>
+</ion-view>

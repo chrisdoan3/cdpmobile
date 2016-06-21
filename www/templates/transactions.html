@@ -1,0 +1,70 @@
+<!--<ion-view view-title="Transactions" ng-controller="TransactionsCtrl as vm">-->
+<ion-view view-title="Transactions">
+    <ion-content>
+
+        <!--<div flex style="margin: 5px 5px 5px 10px; padding-right: 10px;">
+            <div flex="5" style="margin-left: 20px; margin-top: 10px; margin-right: 5px; text-align: right;">
+                <i class="icon ion-search" style="font-size: 24px; float: left;"></i>
+                <input type="text" clearable ng-model="vm.search" placeholder="Search criteria?" ng-keypress="vm.checkIfEnterKeyWasPressed($event)" style="background-color: #F2F2F2; border-color: gray; border-style: solid; border-width: 1px; width: 100%; border-radius: 3px; padding: 3px; margin-top: 3px; text-align: center;">
+            </div>
+            <div style="margin: 10px 0px 10px 0px; text-align: center;">
+                <span style="background-color: #D6DBDF; color: darkgreen; padding: 5px 20px 5px 20px;">
+                    p= p% a= a< a<= a> a>= m= m% ; Enter
+                </span>
+            </div>
+        </div>-->
+
+        <div style="text-align: center; background-color: #D6DBDF; color: darkgreen; margin-top: 5px;">
+            p= p% a= a< a<= a> a>= m= m% ; Enter
+        </div>
+
+        <!--<div class="bar bar-header item-input-inset">
+            <div class="item-input-wrapper">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search">
+                <i class="clear-search icon ion-close" style="width:14px;" ng-click="vm.clearSearch()"></i>
+            </div>
+        </div>-->
+
+        <div class="bar bar-header item-input-inset">
+            <div class="col-10" ng-click="vm.onSwipeUp()">
+                <a class="button icon-left ion-chevron-up button-clear button-dark"></a>
+            </div>
+            <!--<div class="col-60" style="margin: 2px 0px 0px 10px;">
+                <label class="item-input-wrapper">
+                    <i class="icon ion-ios-search placeholder-icon" style="font-size: 24px;"></i>
+                    <input type="search" ng-model="vm.searchstring" placeholder="Search transactions" ng-keypress="vm.checkIfEnterKeyWasPressed($event)">
+                </label>
+            </div>-->
+            <div class="bar bar-header item-input-inset">
+                <div class="item-input-wrapper">
+                    <i class="icon ion-search placeholder-icon" style="font-size: 24px;"></i>
+                    <input type="search" ng-model="vm.searchstring" placeholder="Search transactions" ng-keypress="vm.checkIfEnterKeyWasPressed($event)">
+                    <i class="clear-search icon ion-close" style="width:14px; font-size: 18px;" ng-click="vm.clearSearch()"></i>
+                </div>
+            </div>
+
+            <div class="col-20">
+                <button class="search-button" ng-click="vm.search()">
+                    Search
+                </button>
+            </div>
+            <div class="col-10" ng-click="vm.onSwipeDown()">
+                <a class="button icon-left ion-chevron-down button-clear button-dark"></a>
+            </div>
+        </div>
+
+        <div class="row transaction-header">
+            <div class="col-25">Date</div>
+            <div class="col-25">Amount</div>
+            <div class="col-50">Payee</div>
+        </div>
+        <div class="row transaction-body" ng-repeat="transaction in vm.transactions" on-swipe-down="vm.onSwipeDown()" on-swipe-up="vm.onSwipeUp()">
+            <div ng-click="vm.edit($index)" class="col-25 col1">{{transaction.TranDate | date : "EEE, M/d/yy"}}</div>
+            <div ng-click="vm.edit($index)" ng-class="{'color: negativeamount':transaction.Amount < 0,'color: positiveamount':transaction.Amount >= 0}">
+                {{transaction.Amount ? transaction.Amount : '_' | currency}}
+            </div>
+            <div ng-click="vm.edit($index)" class="col-50 col3">{{transaction.PayeePayor}}</div>
+        </div>
+    </ion-content>
+</ion-view>

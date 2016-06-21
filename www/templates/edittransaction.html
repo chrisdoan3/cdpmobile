@@ -1,0 +1,150 @@
+<ion-modal-view>
+    <ion-header-bar style="background-color: #e8dcdc;"> 
+    <div>
+        <h1 class="title" style="text-align: left; width: 50%;">Edit Transaction</h1>
+        <button class="button button-assertive" ng-click="vm.closeModal()">Cancel</button>&nbsp;&nbsp;
+        <button class="button button-positive" ng-click="vm.updateTransaction()">Update</button>
+
+    </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list"  style="background-color: #d5e7f2">
+         
+            <div class="row" style="height: 60px; padding-top: 0px; padding-left: 5px;">
+                <div class="col col-10" style="padding-top: 15px;">
+                    <i class="icon ion-calendar"></i>&nbsp;
+                    <!--<span>Date:&nbsp;</span>-->
+                </div>
+                <div class="col" style="padding: 0px;">
+                    <div class="row">
+                        <div class="col col-35" style="padding-left: 0px; padding-top: 5px;">
+                            <input type="text" value='{{vm.transactions[vm.transactionindex].TranDate | date : "M/d/yyyy"}}'
+                                   style="width: 130px; background-color: #3e69a3; color: white; padding: 5px; border-radius: 5px; text-align: center; font-size: 18px;">
+                        </div>
+                        <div class="col" style="padding: 0px; margin-left: 60px;">
+                            <button class="button icon ion-calendar" ng-click="vm.openDatePicker()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-10" style="padding-top: 10px;">
+                    <i class="icon ion-android-create"></i>&nbsp;
+                </div>
+                <div class="col">
+                    <input type="text" ng-model="vm.chknum" value='{{vm.transactions[vm.transactionindex].ChkNum}}'
+                           style="width: 130px; background-color: #3e69a3; color: white; border-radius: 5px; text-align: left; padding-left: 20px; font-size: 18px;">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-10" style="padding-top: 10px;">
+                    <i class="icon ion-social-usd"></i>&nbsp;
+                    <!--<span>Amount:&nbsp;</span>-->
+                </div>
+                <div class="col">
+                    <input type="text" ng-model="vm.amount" value='{{vm.transactions[vm.transactionindex].Amount}}'
+                           style="width: 130px; background-color: #3e69a3; color: white; border-radius: 5px; text-align: left; padding-left: 20px; font-size: 18px;">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-10" style="padding-top: 10px;">
+                    <i class="icon ion-person"></i>&nbsp;
+                    <!--<span>Payee:&nbsp;</span>-->
+                </div>
+                <div class="col">
+                    <textarea rows="{{vm.payeerows}}" name="Payee" id="payee" ng-keyup="vm.expandpayee()" ng-keydown="vm.expandpayee()" ng-init="vm.payeeinit()"
+                              style="width: 100%; background-color: #3e69a3; color: white; padding: 10px 20px 10px 20px; border-radius: 5px; font-size: 18px; line-height: 120%;"
+                              ng-model="vm.transactions[vm.transactionindex].PayeePayor"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-10" style="padding-top: 10px;">
+                    <i class="icon ion-ios-book"></i>&nbsp;
+                    <!--<span>Memo:&nbsp;</span>-->
+                </div>
+                <div class="col">
+                    <textarea rows="{{vm.memorows}}" name="Memo" id="memo" ng-keyup="vm.expandmemo()" ng-keydown="vm.expandmemo()"
+                              style="width: 100%; background-color: #3e69a3; color: white; padding: 10px 20px 10px 20px; border-radius: 5px; font-size: 18px; line-height: 120%;"
+                              ng-model="vm.transactions[vm.transactionindex].Memo"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-10" style="padding-top: 10px;">
+                    <i class="icon ion-ios-pricetags"></i>&nbsp;
+                    <!--<span>Type:&nbsp;</span>-->
+                </div>
+                <div class="col">
+                    <select-box ng-Selected-Value="vm.trantype"
+                                ng-Item-Name="Description"
+                                ng-Item-Id="Type"
+                                ng-title="Select transaction type!"
+                                ng-data="vm.transactiontypes | orderBy:'Description'"
+                                ng-placeholder="transaction type not selected!"
+                                ng-placeholder-class="dropdownlist">
+                    </select-box>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-10" style="padding-top: 10px;">
+                    <i class="icon ion-ios-folder"></i>
+                    <!--<span>Cat:&nbsp;</span>-->
+                </div>
+                <div class="col">                 
+                    <select-box ng-Selected-Value="vm.category"
+                                ng-Item-Name="CategoryName"
+                                ng-Item-Id="TransactionCategoryID"
+                                ng-title="Select category!"
+                                ng-data="vm.transactioncategories | orderBy:'CategoryName'"
+                                ng-placeholder="category not selected!"
+                                ng-placeholder-class="dropdownlist">
+                    </select-box>                   
+                </div>
+            </div>
+        </div>
+
+  
+        <!--<div class="row">
+            <div class="col col-10">
+            </div>
+            <div class="col">
+                <button class="button button-assertive" ng-click="vm.closeModal()">Cancel</button>
+            </div>
+            <div class="col col-5">
+            </div>
+            <div>
+                <button class="button button-positive" ng-click="vm.updateTransaction()">Update</button>
+            </div>
+            <div class="col col-10">
+            </div>
+        </div>-->
+      
+
+    </ion-content>
+</ion-modal-view>
+
+<script>
+    $(function () {
+        alert('TEST');
+
+        //var payeebox = document.getElementById("Payee");
+        //adjusttextareaheight(payeebox);
+        var element = document.getElementById("payee");
+        element.style.height = element.scrollHeight + "px";
+    })
+
+    //function adjusttextareaheight(textField) {
+    //    if (textField.clientHeight < textField.scrollHeight) {
+    //        textField.style.height = textField.scrollHeight + "px";
+    //        if (textField.clientHeight < textField.scrollHeight) {
+    //            textField.style.height =
+    //              (textField.scrollHeight * 2 - textField.clientHeight) + "px";
+    //        }
+    //    }
+    //}
+</script>

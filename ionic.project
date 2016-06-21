@@ -1,0 +1,10 @@
+{
+  "name": "cdpmobile",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/webapi",
+      "proxyUrl": "http://www.cdsoftwaresolutions.com/webapi"
+    }
+  ]
+}

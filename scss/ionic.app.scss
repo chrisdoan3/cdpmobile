@@ -1,0 +1,177 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+$dialogheaderbackcolor: #387EF5;
+
+$white: white;
+$red: red;
+$yellow: yellow;
+$green: green;
+$pink: pink;
+$blue: blue;
+
+$sidemenubackgroundcolor: #1E659B;
+
+.bar-header {
+    background-color: $dialogheaderbackcolor;
+    font-size:small;
+    text-align: center !important;
+}
+
+.popup-body {
+    background-color : white;
+}
+.popup-head {
+    /*background-color : lighten($yellow, 40%);*/
+}
+.popup-title{
+    color : lighten($red, 5%);
+    /*background-color : lighten($yellow, 40%);*/
+    font-weight: bold;
+}
+.popup-buttons .button {
+    border-radius: 20px;    
+}
+
+/*.loginoutbackcolor {
+    color: navy;
+    background-color: blue;
+    text-align: center;
+}*/
+
+.side-menu {
+    background-color: darken($sidemenubackgroundcolor,20%);
+}
+.side-menu .item {
+    background-color: $sidemenubackgroundcolor;
+    border: 1px solid;   
+    border-color: gray; 
+    color: $white;    
+    font-size: large;
+}
+/*.side-menu .item-complex .item-content, .dark .item-radio .item-content {
+    background-color: darken($sidemenubackgroundcolor,90%);
+    font-weight: bold;
+    font-size: larger;
+}*/
+.side-menu-custom {
+  height: 62px; 
+  padding-top: 4px;  
+}
+
+.transaction-header {
+    color: navy;
+    font-weight: bold;
+    background-color: lightgrey;
+}
+.transaction-body {
+    padding: 3px;
+    font-size: large;
+    background-color: #093f66;
+    color: white;
+}
+.col1 {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+    padding: 3px;
+    color: lighten($yellow, 40%);
+    /*font-size: 8px;*/
+}
+.col2 {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+    padding: 3px;
+}
+.col3 {
+    width: 100%;
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+    padding: 3px;
+}
+.col1:last-child {
+  border-right: solid 1px grey;
+}
+.row:last-child .col1 {
+  border-bottom: solid 1px grey;
+}
+.col2:last-child {
+  border-right: solid 1px grey;
+}
+.row:last-child .col2 {
+  border-bottom: solid 1px grey;
+}
+.col3:last-child {
+  border-right: solid 1px grey;
+}
+.row:last-child .col3 {
+  border-bottom: solid 1px grey;
+}
+
+.positiveamount {
+    width: 130px;
+    color: #0fff02;
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+    padding: 3px;
+}
+.row:last-child .positiveamount {
+    border-bottom: solid 1px grey;
+}
+.negativeamount {
+    width: 130px;
+    color: #f2b0b0;
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+    padding: 3px;
+}
+.row:last-child .negativeamount {
+    border-bottom: solid 1px grey;
+}
+
+.bar-header {
+    background-color: transparent;
+}
+
+.search-button {
+    background-color: lightblue;
+    color: navy;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.dropdownlist {
+    width: 90%; 
+    background-color: #eaeff2; 
+    color: white; 
+    background-color: #3e69a3;   
+    font-size: small;
+    /*border-radius: 5px; 
+    border-style: solid; 
+    border-color: gray; 
+    border-width: 5px;*/
+}
